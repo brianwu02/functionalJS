@@ -11,6 +11,20 @@ var _ = require('underscore');
  *                  max-rest))))))
  */
 
+
+
+lmax = function(ls) {
+  if (_.tail(ls).length === 0) {
+    return _.head(ls);
+  }
+  if (_.head(ls) > lmax(_.tail(ls))) {
+    return _.head(ls);
+  } else {
+    return lmax(_.tail(ls));
+  }
+};
+
+
 listMax = function(ls) {
   var head = _.head(ls);
   var tail = _.tail(ls);
@@ -26,5 +40,5 @@ listMax = function(ls) {
   }
 };
 
-console.log(listMax([3,4,10,1]));
+console.log(lmax([3,4,10,1]));
 
