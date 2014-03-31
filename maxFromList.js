@@ -11,8 +11,7 @@ var _ = require('underscore');
  *                  max-rest))))))
  */
 
-
-
+// written as function expression
 lmax = function(ls) {
   if (_.tail(ls).length === 0) {
     return _.head(ls);
@@ -24,21 +23,21 @@ lmax = function(ls) {
   }
 };
 
-
-listMax = function(ls) {
+// written as function declaration
+function listMax(ls) {
   var head = _.head(ls);
   var tail = _.tail(ls);
   if (tail.length === 0) {
     return head;
-  } else {
-    var maxRest = listMax(tail);
-    if (head > maxRest) {
+  } else { 
+    var rest = listMax(tail);
+    if (head > rest) {
       return head;
     } else {
-      return maxRest;
+      return rest;
     }
   }
-};
+}
 
 console.log(lmax([3,4,10,1]));
 
