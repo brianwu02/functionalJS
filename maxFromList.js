@@ -41,3 +41,19 @@ function listMax(ls) {
 
 console.log(lmax([3,4,10,1]));
 
+/*  The underscore way to do eet.
+ */
+
+console.log(_.max([3,4,10,1]));
+
+var players = [{'name': 'Brian','age': 23}, {'name': 'J','age': 21}];
+
+console.log(_.max(players, function(player) {
+  return player.age;
+}));
+
+console.log(_.min(players, function(player) {
+  return player.age;
+}));
+  
+
